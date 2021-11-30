@@ -19,11 +19,13 @@ int main(int argc, char **argv) {
   bool passwordsw = false;
   bool save_pass = false;
   bool crypto = false;
+  bool env = false;
   
   try {
     po::options_description desc("Allowed options");
     desc.add_options()
         ("help,h", "produce help message")
+        ("env,e", po::bool_switch(&env), "PCLOUD_USER account name & PCLOUD_PASS password, from environment variable")
         ("username,u", po::value<std::string>(&username), "pCloud account name")
         ("password,p", po::bool_switch(&passwordsw), "Ask pCloud account password")
         ("crypto,c",  po::bool_switch(&crypto), "Ask crypto password")
@@ -58,13 +60,32 @@ int main(int argc, char **argv) {
       return 0;
     }
     
-    if ((!vm.count("username"))) {
+    if ((!vm.count("username")) && !env) {
       std::cout << "Username option is required!!!"  << "\n";
       return 1;
     }
-    console_client::clibrary::pclsync_lib::get_lib().set_username(username);
+
+    if (env) {
+      const char* user = std::getenv("PCLOUD_USER");
+      if (user) {
+        console_client::clibrary::pclsync_lib::get_lib().set_username(user);
+      } else {
+        std::cout << "Username option is required!!!"  << "\n";
+        return 1;
+      }
+
+      const char* pass = std::getenv("PCLOUD_PASS");
+      if (pass) {
+        console_client::clibrary::pclsync_lib::get_lib().set_password(pass);
+      } else {
+        std::cout << "Pass option is required!!!"  << "\n";
+        return 1;
+      }
+    } else {
+      console_client::clibrary::pclsync_lib::get_lib().set_username(username);
+    }
     
-    if (passwordsw) {
+    if (passwordsw && !env) {
       console_client::clibrary::pclsync_lib::get_lib().get_pass_from_console();
     }
     

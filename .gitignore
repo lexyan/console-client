@@ -1,2 +1,12 @@
 *.o
 *.a
+*.so
+.vscode
+CMakeFiles
+pCloudCC/cmake_install.cmake
+pCloudCC/CMakeCache.txt
+pCloudCC/lib/mbedtls/Makefile
+pCloudCC/lib/mbedtls/library/Makefile
+pCloudCC/Makefile
+pCloudCC/pcloudcc
+exportcloud.sh
