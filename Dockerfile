@@ -1,7 +1,7 @@
 FROM debian:bullseye as builder
 
 RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
-    && apt-get -y install git cmake zlib1g-dev libboost-system-dev libboost-program-options-dev libpthread-stubs0-dev libfuse-dev libudev-dev fuse devscripts build-essential lintian debhelper
+    && apt-get -y install cmake git zlib1g-dev libboost-system-dev libboost-program-options-dev libpthread-stubs0-dev libfuse-dev libudev-dev fuse devscripts build-essential lintian debhelper
 
 WORKDIR /workspace
 RUN git clone https://github.com/jmcomby/console-client.git

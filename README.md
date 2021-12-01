@@ -50,7 +50,7 @@ Terminal command is pcloudcc and -h option prints short options description.
 >  -k [ --commands_only ]    Daemon already started pass only commands.  
 >  -n [ --newuser ]          Switch if this is a new user to be registered.  
 >  -s [ --savepassword ]     Save password in database.  
->  -e [ --env ]              Use PCLOUD_USER & PCLOUD_PASS from environment variables 
+>  -e [ --env ]              Use PCLOUD_USER, PCLOUD_PASS & PCLOUD_MOUNT from environment variables 
 
 Also there are several commands that the running service can execute. Commands are passed using 
 > pcloudcc -k 
