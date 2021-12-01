@@ -9,4 +9,9 @@ pCloudCC/lib/mbedtls/Makefile
 pCloudCC/lib/mbedtls/library/Makefile
 pCloudCC/Makefile
 pCloudCC/pcloudcc
+pCloudCC/debian/.debhelper
+pCloudCC/debian/pcloudcc
 exportcloud.sh
+pcloudcc_*
+pcloudcc-db*
+pCloudCC/install_manifest.txt
