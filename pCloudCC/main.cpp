@@ -103,6 +103,16 @@ int main(int argc, char **argv) {
     if (vm.count("mountpoint"))
         console_client::clibrary::pclsync_lib::get_lib().set_mount( vm["mountpoint"].as<std::string>());
     
+    if (env) {
+      const char* mountp = std::getenv("PCLOUD_MOUNT");
+      if (mountp) {
+        console_client::clibrary::pclsync_lib::get_lib().set_mount(mountp);
+      } else {
+        std::cout << "Mount point option is required!!!"  << "\n";
+        return 1;
+      }
+    }
+    
     console_client::clibrary::pclsync_lib::get_lib().newuser_ = newuser;
     console_client::clibrary::pclsync_lib::get_lib().set_savepass(save_pass);
     console_client::clibrary::pclsync_lib::get_lib().set_daemon(daemon);

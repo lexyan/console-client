@@ -72,7 +72,8 @@ Example usage scenario:
 - Start the service with environment variables
 > export PCLOUD_USER=example@myemail.com  
 > export PCLOUD_PASS=pass  
-> pcloudcc -e -m /mount_point  
+> export PCLOUD_MOUNT=/mount_point  
+> pcloudcc -e  
 
 Enter password and  use -s switch to save the password. 
 
