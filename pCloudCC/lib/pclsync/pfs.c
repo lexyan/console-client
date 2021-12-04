@@ -3421,6 +3421,7 @@ static int psync_fs_do_start(){
     fuse_opt_add_arg(&args, "-ononempty");
   }
   fuse_opt_add_arg(&args, "-ohard_remove");
+  fuse_opt_add_arg(&args, "-oallow_other");
 //  fuse_opt_add_arg(&args, "-d");
 #endif
 
