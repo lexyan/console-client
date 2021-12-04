@@ -1,6 +1,6 @@
 # pCloud Console Client
 
-This is a simple linux console client for pCloud cloud storage. 
+This is a simple linux console client for pCloud cloud storage. Add loading user, pass, mount from environment variables. Allow other user to write in the mounting point. Must add in the /etc/fuse.conf: user_allow_other.
 
 ## Required libraries 
 [Zlib](http://zlib.net/)  A Massively Spiffy Yet Delicately Unobtrusive Compression Library.  
